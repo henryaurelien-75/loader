@@ -44,12 +44,14 @@
     }
   }
 
- function addAIButton() {
+function addAIButton() {
   if (document.getElementById("openwebui-button")) return;
 
   const btn = document.createElement("div");
   btn.id = "openwebui-button";
-  btn.innerText = "IA";
+
+  // Texte avec étoile
+  btn.innerHTML = "⭐ IA";
 
   // Position
   btn.style.position = "fixed";
@@ -57,11 +59,11 @@
   btn.style.right = "25px";
 
   // Taille plus grande
-  btn.style.width = "85px";
-  btn.style.height = "85px";
+  btn.style.width = "95px";
+  btn.style.height = "95px";
 
   // Couleur bleu foncé
-  btn.style.background = "#0a2a66"; // <<< BLEU FONCÉ
+  btn.style.background = "#0a2a66";
   btn.style.color = "white";
 
   // Style général
@@ -71,14 +73,14 @@
   btn.style.justifyContent = "center";
   btn.style.cursor = "pointer";
   btn.style.zIndex = "1000000";
-  btn.style.fontSize = "30px";
+  btn.style.fontSize = "26px";
   btn.style.fontWeight = "bold";
   btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
   btn.style.userSelect = "none";
   btn.style.transition = "transform 0.15s ease";
 
   // Animation de clignotement au démarrage
-  btn.style.animation = "iaBlink 1s ease-in-out 0s 4";
+  btn.style.animation = "iaBlink 1s ease-in-out 2s 0";
 
   // Ajout de l’animation CSS
   const style = document.createElement("style");
@@ -93,7 +95,7 @@
 
   // Effet hover
   btn.onmouseenter = () => {
-    btn.style.transform = "scale(1.08)";
+    btn.style.transform = "scale(1.10)";
   };
   btn.onmouseleave = () => {
     btn.style.transform = "scale(1)";
