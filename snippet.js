@@ -51,31 +51,47 @@
   btn.id = "openwebui-button";
   btn.innerText = "IA";
 
+  // Position
   btn.style.position = "fixed";
   btn.style.bottom = "25px";
   btn.style.right = "25px";
 
-  // <<< BOUTON PLUS GRAND
-  btn.style.width = "80px";
-  btn.style.height = "80px";
+  // Taille plus grande
+  btn.style.width = "85px";
+  btn.style.height = "85px";
 
-  btn.style.background = "#4a6cf7";
+  // Couleur bleu foncé
+  btn.style.background = "#0a2a66"; // <<< BLEU FONCÉ
   btn.style.color = "white";
+
+  // Style général
   btn.style.borderRadius = "50%";
   btn.style.display = "flex";
   btn.style.alignItems = "center";
   btn.style.justifyContent = "center";
   btn.style.cursor = "pointer";
   btn.style.zIndex = "1000000";
-
-  // <<< TEXTE PLUS GRAND
-  btn.style.fontSize = "28px";
+  btn.style.fontSize = "30px";
   btn.style.fontWeight = "bold";
-
-  // Effet visuel plus moderne
   btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
+  btn.style.userSelect = "none";
   btn.style.transition = "transform 0.15s ease";
 
+  // Animation de clignotement au démarrage
+  btn.style.animation = "iaBlink 1s ease-in-out 0s 4";
+
+  // Ajout de l’animation CSS
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes iaBlink {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Effet hover
   btn.onmouseenter = () => {
     btn.style.transform = "scale(1.08)";
   };
@@ -83,6 +99,7 @@
     btn.style.transform = "scale(1)";
   };
 
+  // Action : ouvrir/fermer le panneau IA
   btn.onclick = toggleAIChatPanel;
 
   document.body.appendChild(btn);
