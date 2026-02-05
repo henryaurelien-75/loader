@@ -44,33 +44,49 @@
     }
   }
 
-  function addAIButton() {
-    if (document.getElementById("openwebui-button")) return;
+ function addAIButton() {
+  if (document.getElementById("openwebui-button")) return;
 
-    const btn = document.createElement("div");
-    btn.id = "openwebui-button";
-    btn.innerText = "IA";
-    btn.style.position = "fixed";
-    btn.style.bottom = "20px";
-    btn.style.right = "20px";
-    btn.style.width = "60px";
-    btn.style.height = "60px";
-    btn.style.background = "#4a6cf7";
-    btn.style.color = "white";
-    btn.style.borderRadius = "50%";
-    btn.style.display = "flex";
-    btn.style.alignItems = "center";
-    btn.style.justifyContent = "center";
-    btn.style.cursor = "pointer";
-    btn.style.zIndex = "1000000";
-    btn.style.fontSize = "20px";
-    btn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
-    btn.style.userSelect = "none";
+  const btn = document.createElement("div");
+  btn.id = "openwebui-button";
+  btn.innerText = "IA";
 
-    btn.onclick = toggleAIChatPanel;
+  btn.style.position = "fixed";
+  btn.style.bottom = "25px";
+  btn.style.right = "25px";
 
-    document.body.appendChild(btn);
-  }
+  // <<< BOUTON PLUS GRAND
+  btn.style.width = "80px";
+  btn.style.height = "80px";
+
+  btn.style.background = "#4a6cf7";
+  btn.style.color = "white";
+  btn.style.borderRadius = "50%";
+  btn.style.display = "flex";
+  btn.style.alignItems = "center";
+  btn.style.justifyContent = "center";
+  btn.style.cursor = "pointer";
+  btn.style.zIndex = "1000000";
+
+  // <<< TEXTE PLUS GRAND
+  btn.style.fontSize = "28px";
+  btn.style.fontWeight = "bold";
+
+  // Effet visuel plus moderne
+  btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
+  btn.style.transition = "transform 0.15s ease";
+
+  btn.onmouseenter = () => {
+    btn.style.transform = "scale(1.08)";
+  };
+  btn.onmouseleave = () => {
+    btn.style.transform = "scale(1)";
+  };
+
+  btn.onclick = toggleAIChatPanel;
+
+  document.body.appendChild(btn);
+}
 
   function tryInject() {
     if (injected) return;
