@@ -56,12 +56,12 @@
 
     // Position du bouton (plus haut)
     btn.style.position = "fixed";
-    btn.style.bottom = "250px";  // Ajuste ici pour monter/descendre
+    btn.style.top = "310px";  // Ajuste ici pour monter/descendre
     btn.style.right = "25px";
 
     // Taille du conteneur (plus discret)
-    btn.style.width = "80px";
-    btn.style.height = "80px";
+    btn.style.width = "128px";
+    btn.style.height = "128px";
 
     // Style général (plus de forme ronde)
     btn.style.backgroundColor = "transparent";
