@@ -50,7 +50,7 @@
     btn.id = "openwebui-button";
 
     // 👉 Mets ici l’URL de ton icône hébergée
-    const IA_ICON_URL = "TON_URL_IMAGE";
+    const IA_ICON_URL = "https://henryaurelien-75.github.io/loader/icon_ia.png";
 
     btn.innerHTML = `<img id="ia-icon" src="${IA_ICON_URL}" alt="IA" />`;
 
