@@ -1,7 +1,7 @@
 (function () {
   const CONFIG = {
     TARGET_DOMAINS: ["successfactors", ".hr.cloud.sap", ".plateau.com"],
-    AI_CHAT_URL: "https://www.perplexity.ai/",
+    AI_CHAT_URL: "http://192.168.1.131:3050/",
     POLLING_INTERVAL: 50,
     POLLING_TIMEOUT: 15000
   };
