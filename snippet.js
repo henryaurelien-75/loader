@@ -72,7 +72,7 @@
 
     // Fond personnalisé
     btn.style.backgroundImage =
-      "url('https://hcm-eu20-preview.hr.cloud.sap/public/ui-resource/viseoT1/274;mod=5a2cc83315671139d05a879997e23c08&resize=wsx')";
+      "url('https://hcm-eu20-preview.hr.cloud.sap/public/ui-resource/viseoT1/275;mod=3808009d3dab84c2085ebf0283b97302&resize=wsx')";
     btn.style.backgroundSize = "cover";
     btn.style.backgroundPosition = "center";
     btn.style.backgroundRepeat = "no-repeat";
