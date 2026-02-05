@@ -29,7 +29,7 @@
     container.style.width = "420px";
     container.style.height = "100vh";
     container.style.zIndex = "999999";
-    container.style.background = "#d9ecff"; // bleu clair
+    container.style.background = "#d9ecff";
     container.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
 
     const iframe = document.createElement("iframe");
@@ -51,74 +51,58 @@
     }
   }
 
-  // Bouton IA (fond personnalisé + étoile tournante)
+  // Bouton IA
   function addAIButton() {
     if (document.getElementById("openwebui-button")) return;
 
     const btn = document.createElement("div");
     btn.id = "openwebui-button";
 
-    // Texte avec étoile animée
-    btn.innerHTML = '<span id="ia-star">⭐</span> IA';
+    // 👉 Mets ici l’URL de ton image hébergée
+    const IA_ICON_URL = "TON_URL_IMAGE";
+
+    btn.innerHTML = `<img id="ia-icon" src="icon_ia.png" alt="IA" />`;
 
     // Position
     btn.style.position = "fixed";
-    btn.style.top = "50px";
+    btn.style.bottom = "150px"; // bouton remonté
     btn.style.right = "25px";
 
-    // Taille
+    // Taille du bouton
     btn.style.width = "95px";
     btn.style.height = "95px";
 
-    // Fond personnalisé
-    btn.style.backgroundImage =
-      "url('https://hcm-eu20-preview.hr.cloud.sap/public/ui-resource/viseoT1/275;mod=3808009d3dab84c2085ebf0283b97302&resize=wsx')";
-    btn.style.backgroundSize = "cover";
-    btn.style.backgroundPosition = "center";
-    btn.style.backgroundRepeat = "no-repeat";
-
-    // Couleur fallback
-    btn.style.backgroundColor = "#0a2a66";
-
     // Style général
-    btn.style.color = "white";
+    btn.style.backgroundColor = "#0a2a66";
     btn.style.borderRadius = "50%";
     btn.style.display = "flex";
-    btn.style.flexDirection = "column";
     btn.style.alignItems = "center";
     btn.style.justifyContent = "center";
     btn.style.cursor = "pointer";
     btn.style.zIndex = "1000000";
-    btn.style.fontSize = "26px";
-    btn.style.fontWeight = "bold";
     btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
     btn.style.userSelect = "none";
-    btn.style.transition = "transform 0.5s ease";
+    btn.style.transition = "transform 0.7s ease";
 
-    // Animation du bouton (clignotement)
-    btn.style.animation = "iaBlink 1s ease-in-out 0s 2";
-
-    // Animations CSS
+    // CSS
     const style = document.createElement("style");
     style.innerHTML = `
+      #ia-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+      }
+
       @keyframes iaBlink {
         0% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.15); opacity: 0.5; }
         100% { transform: scale(1); opacity: 1; }
       }
-
-      @keyframes starSpin {
-        0% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.3); }
-        100% { transform: rotate(360deg) scale(1); }
-      }
-
-      #ia-star {
-        display: inline-block;
-        animation: starSpin 1.2s ease-in-out 0s 2;
-      }
     `;
     document.head.appendChild(style);
+
+    // Animation du bouton
+    btn.style.animation = "iaBlink 1s ease-in-out 0s 2";
 
     // Hover
     btn.onmouseenter = () => {
