@@ -1,10 +1,7 @@
 (function () {
   const CONFIG = {
     TARGET_DOMAINS: ["successfactors", ".hr.cloud.sap", ".plateau.com"],
-
-    // Ton OpenWebUI local
     AI_CHAT_URL: "http://192.168.1.131:3050/",
-
     POLLING_INTERVAL: 50,
     POLLING_TIMEOUT: 15000
   };
@@ -12,12 +9,10 @@
   let injected = false;
   let timer = null;
 
-  // Vérifie si on est dans SF / Plateau
   function isTargetEnvironment() {
     return CONFIG.TARGET_DOMAINS.some(d => location.href.includes(d));
   }
 
-  // Panneau IA (iframe OpenWebUI)
   function addAIChatPanel() {
     if (document.getElementById("openwebui-panel")) return;
 
@@ -44,69 +39,66 @@
 
   function toggleAIChatPanel() {
     const panel = document.getElementById("openwebui-panel");
-    if (panel) {
-      panel.remove();
-    } else {
-      addAIChatPanel();
-    }
+    if (panel) panel.remove();
+    else addAIChatPanel();
   }
 
-  // Bouton IA
   function addAIButton() {
     if (document.getElementById("openwebui-button")) return;
 
     const btn = document.createElement("div");
     btn.id = "openwebui-button";
 
-    // 👉 Mets ici l’URL de ton image hébergée
-    const IA_ICON_URL = "https://henryaurelien-75.github.io/loader/icon_ia.png";
+    // 👉 Mets ici l’URL de ton icône hébergée
+    const IA_ICON_URL = "TON_URL_IMAGE";
 
     btn.innerHTML = `<img id="ia-icon" src="${IA_ICON_URL}" alt="IA" />`;
 
-    // Position
+    // Position du bouton (plus haut)
     btn.style.position = "fixed";
-    btn.style.bottom = "150px"; // bouton remonté
+    btn.style.bottom = "250px";  // Ajuste ici pour monter/descendre
     btn.style.right = "25px";
 
-    // Taille du bouton
-    btn.style.width = "95px";
-    btn.style.height = "95px";
+    // Taille du conteneur (plus discret)
+    btn.style.width = "80px";
+    btn.style.height = "80px";
 
-    // Style général
-    btn.style.backgroundColor = "#0a2a66";
-    btn.style.borderRadius = "50%";
+    // Style général (plus de forme ronde)
+    btn.style.backgroundColor = "transparent";
+    btn.style.borderRadius = "12px"; // léger arrondi
     btn.style.display = "flex";
     btn.style.alignItems = "center";
     btn.style.justifyContent = "center";
     btn.style.cursor = "pointer";
     btn.style.zIndex = "1000000";
-    btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
     btn.style.userSelect = "none";
-    btn.style.transition = "transform 0.7s ease";
+    btn.style.transition = "transform 0.3s ease";
 
-    // CSS
+    // Style de l’icône
     const style = document.createElement("style");
     style.innerHTML = `
       #ia-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 12px;
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        border: 2px solid white; /* léger contour blanc */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       }
 
       @keyframes iaBlink {
         0% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.15); opacity: 0.5; }
+        50% { transform: scale(1.10); opacity: 0.6; }
         100% { transform: scale(1); opacity: 1; }
       }
     `;
     document.head.appendChild(style);
 
-    // Animation du bouton
-    btn.style.animation = "iaBlink 1s ease-in-out 0s 2";
+    // Animation d’apparition
+    btn.style.animation = "iaBlink 1s ease-in-out 0s 1";
 
     // Hover
     btn.onmouseenter = () => {
-      btn.style.transform = "scale(1.10)";
+      btn.style.transform = "scale(1.08)";
     };
     btn.onmouseleave = () => {
       btn.style.transform = "scale(1)";
@@ -118,7 +110,6 @@
     document.body.appendChild(btn);
   }
 
-  // Injection
   function tryInject() {
     if (injected) return;
 
@@ -134,7 +125,6 @@
     }
   }
 
-  // Polling
   function start() {
     const startTime = Date.now();
     timer = setInterval(() => {
