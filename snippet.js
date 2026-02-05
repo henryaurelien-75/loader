@@ -29,7 +29,7 @@
     iframe.style.height = "100vh";
     iframe.style.border = "none";
     iframe.style.zIndex = "999999";
-    iframe.style.background = "white";
+    iframe.style.background = "#d9ecff"; 
     iframe.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
 
     document.body.appendChild(iframe);
