@@ -93,7 +93,7 @@
     btn.style.fontWeight = "bold";
     btn.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
     btn.style.userSelect = "none";
-    btn.style.transition = "transform 0.7s ease";
+    btn.style.transition = "transform 0.5s ease";
 
     // Animation du bouton (clignotement)
     btn.style.animation = "iaBlink 1s ease-in-out 0s 2";
