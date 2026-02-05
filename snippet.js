@@ -63,7 +63,7 @@
 
     // Position
     btn.style.position = "fixed";
-    btn.style.bottom = "25px";
+    btn.style.top = "50px";
     btn.style.right = "25px";
 
     // Taille
